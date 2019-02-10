@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>Log In Page</title>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+
+<div class="container">
+    <h1>Log In Page</h1>
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        {% if error %}
+        <h6 style="color: red">Please check your username or password</h6>
+        {% endif %}
+        <button type="submit" name="submit" class="btn btn-success">Log in</button>
+    </form>
+</div>
+
+{% endblock %}
+
+</body>
+</html>
