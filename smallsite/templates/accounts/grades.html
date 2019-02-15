@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+<meta charset="UTF-8">
+
+{% block head %}
+    <title>Grades</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'grades/grades.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar">
+        <a href="/smallsite/" class="anc">Home Page</a>
+        <a href="/smallsite/about/" class="anc">About us</a>
+    </nav>
+
+
+    <h1>Student name: {{full_name}}</h1>
+
+    <div class="w3-card-2 w3-margin">
+        <table class="w3-table-all">
+        <tr class="grades-table">
+            <th style="font-size: 18px">Subject:</th>
+            <th style="font-size: 18px">Semester 1st:</th>
+            <th style="font-size: 18px">Semester 2nd:</th>
+            <th style="font-size: 18px">Total:</th>
+        </tr>
+        <tr class="grades-table">
+            <td class="subject">Chemistry</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+        </tr>
+
+        <tr class="grades-table">
+            <td class="subject">English</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td class="subject">Geography</td>
+            <td class="grades-table">5</td>
+            <td class="grades-table">5</td>
+            <td>5</td>
+        </tr>
+
+        <tr class="grades-table">
+            <td class="subject">Math</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+        </tr>
+
+        <tr class="grades-table">
+            <td class="subject">Physics</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+        </tr>
+
+    </table>
+    </div>
+
+{% endblock %}
+
+
+</html>

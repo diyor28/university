@@ -9,14 +9,16 @@
 <body>
 
 {% block body %}
-<h1>Sign Up Page</h1>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" name="submit" class="btn btn-success">Submit</button>
-</form>
-
+<div class="container">
+    <h1>Sign Up Page</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{profile_form.as_p}}
+        {{user_form.as_p}}
+        <button type="submit" name="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
 {% endblock %}
 
 </body>

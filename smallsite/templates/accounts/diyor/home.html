@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+<html lang="en">
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/base.css' %}">
+
+{% endblock %}
+
+
+<body class="w3-light-grey">
+
+{% block body%}
+
+<nav>
+	<a href="#" id="logo">LOGO</a>
+	<a href="studinfo/" class="anc">Students</a>
+	<a href="signup/" class="anc" style="float: right">Sign Up</a>
+	<a href="login/" class="anc" style="float: right">Log In</a>
+</nav>
+
+{% endblock %}
+
+</body>
+</html>

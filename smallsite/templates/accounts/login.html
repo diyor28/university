@@ -4,17 +4,21 @@
     {% extends 'base.html' %}
     <meta charset="UTF-8">
     {% block head %}
+
     <title>Log In Page</title>
     {% endblock %}
 </head>
 <body>
 {% block body %}
 
+<nav>
+    <div class="navbar-brand container">
+        <a href="/smallsite/">Home Page</a>
+    </div>
+</nav>
+
 <div class="container">
-    <h1>Log In Page</h1>
-
-
-
+    <h1>Log In</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{form.as_p}}

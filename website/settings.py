@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'smallsite.apps.SmallsiteConfig'
+    # 'smallsite.apps.SmallsiteConfig',
+    'smallsite',
+    'django_extensions'
 ]
 
-AUTH_USER_MODEL = 'smallsite.User'
+AUTH_USER_MODEL = 'smallsite.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +81,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'psql_django'),
+        'NAME': os.environ.get('DB_NAME', 'university'),
         'USER': os.environ.get('DB_USER', 'diyor'),
         'PASSWORD': os.environ.get('DB_PASS', 'Aa2731275'),
         'HOST': 'localhost',
@@ -125,4 +127,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/smallsite/'
+# LOGIN_REDIRECT_URL = '/smallsite/'
+# LOGIN_REDIRECT_URL = 'smallsite/home/'
+# LOGOUT_REDIRECT_URL = 'smallsite/home/'

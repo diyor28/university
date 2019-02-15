@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LogIn Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Charm|Dancing+Script|Fondamento|Princess+Sofia" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Gentium+Basic|Hind+Siliguri|Mate|Radley" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<style>
+	a {
+		font-family: 'Mate', serif;
+		text-decoration: none;
+		color: grey;
+	}
+	a:hover {
+		text-decoration: none;
+		color: black
+	}
+	h3,h1 {
+		font-family: 'Radley', serif;
+	}
+	p {
+		font-family: 'Hind Siliguri', sans-serif;
+	}
+	.anb {
+		color: white;
+	}
+	.anb:hover {
+		color: #bfbfbf;
+	}
+	.anc {
+		font-family: 'Mate', serif;
+		text-decoration: none;
+		color: white;
+		padding: 0 2px;
+	}
+	.anc:hover {
+		text-decoration: none;
+		color: #bfbfbf;
+	}
+	#logo {
+		font-weight: 600;
+		font-size: 16px;
+		text-decoration: none;
+		color: white;
+		padding-right: 6px;
+		font-family: 'Mate', serif;
+	}
+	#logo:hover {
+		color: white;
+		text-decoration: none;
+	}
+	nav {
+		background-color: grey;
+		margin: 0;
+		padding: 6px 16px;
+	}
+</style>
+</head>
+<body class="w3-light-grey">
+	
+<nav>
+	<a href="#" id="logo">LOGO</a>
+	  <a href="main.html" class="anb"><i class="fa fa-home"></i></a>
+	<a href="#" class="anc">Students</a>
+	<a href="signup.html" class="anc">LogIn</a>
+	<a href="student.html" class="anc" style="float: right;">SignUp</a>
+</nav>
+
+	<form class="w3-card-4 w3-margin w3-light-grey w3-container">
+		<h3 class="w3-center">Registration</h3>
+		<hr>
+<p>
+	<label>First Name:</label>
+	<input type="text" class="w3-input w3-border w3-round" placeholder="Enter your name...">
+</p>
+
+<p>
+	<label>Last Name:</label>
+	<input type="text" class="w3-input w3-border w3-round" placeholder="Enter your surname...">
+</p>
+
+<p>
+	<label>Email:</label>
+	<input type="email" class="w3-input w3-border w3-round" placeholder="Enter your email...">
+</p>
+
+<p>
+	<label>Password:</label>
+	<input type="password" class="w3-input w3-border w3-round" placeholder="Enter your password...">
+</p>
+
+<p>
+	<label>Repassword:</label>
+	<input type="password" class="w3-input w3-border w3-round" placeholder="Cofirm your password...">
+</p>
+	 <br>
+	<select class="w3-select" name="option">
+		<option value="" disabled selected>Choose your nationality...</option>
+		<option value="1">Tatar</option>
+		<option value="2">Uzbek</option>
+		<option value="3">French</option>
+		<option value="4">Russian</option>
+		<option value="5">Japanese</option>
+		<option value="6">German</option>
+	</select>
+	<br>
+
+	<p class="w3-margin w3-padding w3-center">
+  <input class="w3-radio w3-margin-left" type="radio" name="gender" value="male" checked>
+  <label>Male</label> 
+  <input class="w3-radio w3-margin-left" type="radio" name="gender" value="female">
+  <label>Female</label></p>
+	<hr>
+		<button class="w3-button w3-padding w3-center
+		w3-black w3-block w3-margin-bottom">Register</button>
+	</form>
+</body>
+</html>
