@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Projects</title>
+    <style>
+        . {
+            background-color: #bfbfbf;
+        }
+        .main-text {
+            background-color: white;
+        }
+
+        .anc {
+            font-family: 'Mate', serif;
+            text-decoration: none;
+            color: white;
+            padding: 0 3px;
+        }
+        .anc:hover {
+            text-decoration: none;
+            color: #bfbfbf;
+        }
+        nav {
+            background-color: #00acec;
+            margin: 0;
+            padding: 14px 16px;
+    		margin: 0px 30px 0px 30px;
+    	}
+    </style>
+{% endblock %}
+
+
+{% block body %}
+
+<nav>
+	<a href="/smallsite/" class="anc" style="font-size: 20px">Home Page</a>
+	<a href="/smallsite/signup/" class="anc" style="float: right; font-size: 16px">Sign Up</a>
+	<a href="/smallsite/login/" onclick="document.getElementById('id01').style.display='block'"
+       class="anc" style="float: right; ; font-size: 16px">Log In</a>
+</nav>
+
+
+
+
+<div class="container main-text">
+    <h1 style="color: cornflowerblue">Arudino Projects</h1>
+    <h2>What is Arduino?</h2>
+
+    <p>
+        Arduino is a popular open-source development board for engineers and makers to
+        develop electronics projects in an easy way. It consists of both a physical programmable
+        development board (based on AVR series of microcontrollers) and a piece of software or IDE which runs
+        on your computer and used to write and upload the code to the microcontroller board.
+
+        Explore below 200+ interesting arduino projects and
+        tutorials based on different types of arduino baords like Arduino Uno
+        , Arduino Pro Mini, etc. These DIY arduino projects for beginners are explained well
+        and you can find the complete guide to DIY these projects with the help of circuit diagrams,
+        source codes and videos. You can also browse below pages to get new arduino project ideas.
+    </p>
+
+    <h1 style="color: cornflowerblue">Industrial Robotics</h1>
+
+    <h2>What is Robotics?</h2>
+
+    <p>
+
+        The field of Robotics encompasses everything to do with the design,
+        engineering, programming, testing and development of robots, machines designed
+        to perform tasks currently or previously performed by humans. Robotics is growing rapidly
+        with the advent of big data and the IoT and machines are now capable of processing large quantities
+        of data and learning with minimal human interaction. Using autonomous vehicles as an example,
+        the sensors on the vehicle process thousands of data points each second along with location data from
+        the web to move the vehicle safely along its route. Robotics projects and applications can be found across
+        a large number of industries from automotive production to military drone operations to landing on and
+        exploring Mars.
+    </p>
+
+    <h2>Online Courses in Robotics</h2>
+
+    <p>
+        Robotics courses cover multiple science, math and technology
+        disciplines including machine learning, artificial intelligence,
+        data science, design and engineering. Online courses and programs are
+        designed to introduce you to each of these areas and jump start your career
+        in this exciting and rapidly expanding field.
+
+        The MicroMasters in Robotics from the University of
+        Pennsylvania offers students the opportunity to learn the fundamentals
+        of robotics from legendary professors at the GRASP (General Robotics, Automation,
+        Sensing and Perception) Laboratory. You will learn the math and robot programming tools
+        required to build robots, from the assessment of a real-world problem to the design and
+        development of a solution. The 4-course online robotics program covers visual intelligence,
+        machine learning, robot dynamics and control and locomotion engineering and is equivalent to
+        30% of an on-campus Masters of Science in Engineering degree in Robotics.
+
+        Columbia University’s popular MicroMasters in Artificial Intelligence (AI)
+        demonstrates how applications of machine learning can be used to solve complex problems.
+        Learn how to manipulate robot arms including kinematic chains, forward and inverse kinematics,
+        mobile robot map representations and gain experience planning complete robot systems.
+    </p>
+
+    <h2>Robotics Jobs</h2>
+
+    <p>
+
+        There are quite a few options for career paths in the field of Robotics, from robot
+        programming and engineering to construction, deployment, management and maintenance.
+        Careerbuilder.com lists over 1,000 full-time positions with job titles such as Robotics Specialist,
+        Robotics Technician, Mobile Robotics Application Engineer, Robotics Application Engineer and
+        Lead Robotics Software Engineer. While there are many positions in the exciting world of robotics
+        development and innovation, there is also huge demand for specialists that can maintain the millions
+        of robotic machines already in use around the world. Almost all positions require advanced degrees or
+        specializations in math and computer science and an internship will always lift you above the crowd when
+        applying for that first job.
+
+    </p>
+
+    <h2>Explore a Career in Robotics</h2>
+
+    <p>
+        Get an introduction to robotics with one of many courses on edX and see if a job in the
+        robotics industry is right for you. Take a course in robotics fundamentals, machine learning
+        or artificial intelligence and gain a clear understanding of the field and what you need to
+        excel. Many courses are self-paced so you can enroll now and start today.
+    </p>
+
+</div>
+
+{% endblock %}
+
+</html>

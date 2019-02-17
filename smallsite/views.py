@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
@@ -62,8 +62,7 @@ class LogInView(CreateView):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get("password")
-
-            user = authenticate(request, email=email, password=raw_password)
+            user = authenticate(email=email, password=raw_password)
             login(request, user)
             return redirect('/smallsite/profile')
         return render(request, template_name=self.template_name, context={'form': form})
@@ -80,6 +79,7 @@ class ProfileView(TemplateView):
     template_name = 'accounts/profile.html'
 
     def get(self, request, *args, **kwargs):
+
         first_name = request.user.first_name
         last_name = request.user.last_name
         email = request.user.email
@@ -102,9 +102,24 @@ class StudentsInfoView(CreateView):
         return render(request, template_name=self.template_name, context={})
 
 
-class AboutUsView(CreateView):
-    template_name = 'accounts/about.html'
+class ProjectsView(CreateView):
+    template_name = 'accounts/projects.html'
 
     def get(self, request, *args, **kwargs):
+        return render(request, template_name=self.template_name, context={})
+
+
+class NewsView(CreateView):
+    template_name = 'accounts/news.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, template_name=self.template_name, context={})
+
+
+class LogOutView(CreateView):
+    template_name = 'accounts/logout.html'
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
         return render(request, template_name=self.template_name, context={})
 

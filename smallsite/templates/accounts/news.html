@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+    <title>Projects</title>
+    <style>
+        . {
+            background-color: #bfbfbf;
+        }
+        .main-text {
+            background-color: white;
+        }
+
+        .anc {
+            font-family: 'Mate', serif;
+            text-decoration: none;
+            color: white;
+            padding: 0 3px;
+        }
+        .anc:hover {
+            text-decoration: none;
+            color: #bfbfbf;
+        }
+        nav {
+            background-color: #00acec;
+            padding: 14px 16px;
+    		margin: 0 30px 0 30px;
+    	}
+
+        .news-image {
+            width: 200px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+
+    <nav>
+        <a href="/smallsite/" class="anc" style="font-size: 20px">Home Page</a>
+        <a href="/smallsite/signup/" class="anc" style="float: right; font-size: 16px">Sign Up</a>
+        <a href="/smallsite/login/" onclick="document.getElementById('id01').style.display='block'"
+           class="anc" style="float: right; ; font-size: 16px">Log In</a>
+    </nav>
+
+
+
+    <div class="container main-text">
+        <h1 style="font-family: 'Times New Roman'; margin: 10px 0px 20px 10px;">Daily News</h1>
+
+        <p>
+            <img src="{% static 'images/news1.jpg' %}" class="news-image">
+            <a href="#">Robot Investments Weekly: Love Blooms for Self-Driving, Robotics Firms</a>
+        </p>
+
+        <p>
+            <img src="{% static 'images/news2.jpg' %}" class="news-image">
+            <a href="#">Components Roundup: New sensors, Jetson-based AI development kit</a>
+        </p>
+
+        <p>
+            <img src="{% static 'images/news3.jpeg' %}" class="news-image">
+            <a href="#">Consumer Group Says Self-Driving Cars Aren’t Ready for Public Roads</a>
+        </p>
+
+        <p>
+            <img src="{% static 'images/news4.jpeg' %}" class="news-image">
+            <a href="#">Robot Investments Weekly: Love Blooms for Self-Driving, Robotics Firms</a>
+        </p>
+
+        <p>
+            <img src="{% static 'images/news5.jpeg' %}" class="news-image">
+            <a href="#">Components Roundup: New sensors, Jetson-based AI development kit</a>
+        </p>
+
+        <p>
+            <img src="{% static 'images/news6.jpeg' %}" class="news-image">
+            <a href="#">Consumer Group Says Self-Driving Cars Aren’t Ready for Public Roads</a>
+        </p>
+    </div>
+
+{% endblock %}
+
+</html>

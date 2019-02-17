@@ -18,8 +18,11 @@ from django.urls import include, path
 from django.contrib import admin
 from django.conf.urls import url
 # from website.smallsite import views
+from . views import home_page
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('smallsite/', include('smallsite.urls'), name='smallsite'),
+    url(r'^$', home_page, name='homepagehandle'),
 ]

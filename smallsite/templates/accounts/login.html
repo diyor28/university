@@ -6,30 +6,48 @@
     {% block head %}
 
     <title>Log In Page</title>
+
+    <style>
+        .anc {
+            font-family: 'Mate', serif;
+            text-decoration: none;
+            color: white;
+            padding: 0 3px;
+            font-size: 18px;
+    	}
+
+        .anc:hover {
+	    	text-decoration: none;
+		    color: #bfbfbf;
+    	}
+
+        nav {
+            background-color: #00acec;
+            padding: 14px 16px;
+    		margin: 0 30px 0 30px;
+    	}
+    </style>
+
     {% endblock %}
 </head>
-<body>
 {% block body %}
 
-<nav>
-    <div class="navbar-brand container">
-        <a href="/smallsite/">Home Page</a>
-    </div>
-</nav>
+    <nav>
+        <a href="/smallsite/" class="anc" style="font-size: 20px">Home Page</a>
+        <a href="/smallsite/news/" class="anc">News</a>
+        <a href="/smallsite/projects/" class="anc">Projects</a>
+        <a href="/smallsite/signup/" class="anc" style="float: right">Sign Up</a>
+    </nav>
 
-<div class="container">
-    <h1>Log In</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        {% if error %}
-        <h6 style="color: red">Please check your username or password</h6>
-        {% endif %}
-        <button type="submit" name="submit" class="btn btn-success">Log in</button>
-    </form>
-</div>
+    <div class="container">
+        <h1>Log In</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" name="submit" class="btn btn-success">Log in</button>
+        </form>
+    </div>
 
 {% endblock %}
 
-</body>
 </html>

@@ -5,7 +5,8 @@ from .views import (
     SignUpView, LogInView,
     HomeView, ProfileView,
     StudentsInfoView, GradesView,
-    AboutUsView
+    ProjectsView, NewsView,
+    LogOutView
 )
 
 
@@ -15,6 +16,8 @@ urlpatterns = [
     url(r'^profile/$', ProfileView.as_view(), name='profile'),
     url(r'^studinfo/$', StudentsInfoView.as_view(), name='students'),
     url(r'^profile/grades/$', GradesView.as_view(), name='grades'),
-    url(r'^about/$', AboutUsView.as_view(), name='aboutus'),
+    url(r'^projects/$', ProjectsView.as_view(), name='projects'),
+    url(r'^news/$', NewsView.as_view(), name='news'),
+    url(r'^logout/$', LogOutView.as_view(), name='logout'),
     url(r'^$', HomeView.as_view(), name='home'),
     ]

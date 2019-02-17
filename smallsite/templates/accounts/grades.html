@@ -17,6 +17,7 @@
         <a href="/smallsite/about/" class="anc">About us</a>
     </nav>
 
+    {% if user.is_authenticated %}
 
     <h1>Student name: {{full_name}}</h1>
 
@@ -65,6 +66,15 @@
 
     </table>
     </div>
+
+    {% else %}
+
+    <h4>You need to be logged in to see your grades</h4>
+    <a href="smallsite/login/"></a>
+    <h4>Or sign up if you don't have an account</h4>
+    <a href="smallsite/login/"></a>
+
+    {% endif %}
 
 {% endblock %}
 

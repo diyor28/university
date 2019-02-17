@@ -7,7 +7,8 @@ class CustomUserManager(UserManager):
 
 
 class CustomUser(AbstractUser):
-
+    # email = models.EmailField(default='123abc@gmail.com', max_length=255)
+    # USERNAME_FIELD = 'email'
     objects = CustomUserManager()
 
 
