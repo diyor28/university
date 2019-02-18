@@ -3,43 +3,8 @@
 
 <html lang="en">
 {% block head %}
-	<style>
-  	a {
-		font-family: 'Mate', serif;
-		text-decoration: none;
-		padding: 0 3px;
-		color: grey;
-	}
-	a:hover {
-		text-decoration: none;
-		color: black
-	}
-	h3,h1 {
-		font-family: 'Radley', serif;
-	}
-	p {
-		font-family: 'Hind Siliguri', sans-serif;
-	}
-	.anc {
-		font-family: 'Mate', serif;
-		text-decoration: none;
-		color: white;
-		padding: 0 3px;
-		font-size: 18px;
-	}
-	.anc:hover {
-		text-decoration: none;
-		color: #bfbfbf;
-	}
-	nav {
-		background-color: #00acec;
-		margin: 0 30px 0 30px;
-		padding: 14px 16px;
-	}
-	#fopa {
-		font-family: 'Fondamento', cursive;
-	}
-  </style>
+	{% load static %}
+
 {% endblock %}
 
 
@@ -63,40 +28,10 @@
 	<a href="/smallsite/news/" class="anc">News</a>
 	<a href="/smallsite/projects/" class="anc">Projects</a>
 	<a href="/smallsite/signup/" class="anc" style="float: right">Sign Up</a>
-	<a href="/smallsite/login/" class="anc" style="float: right">Log In</a>
+	<a href="/smallsite/#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right">Log In</a>
 </nav>
 
 {% endif %}
-
-<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-      <div class="w3-center"><br>
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-black w3-display-topright" title="Close Modal">&times;</span>
-      </div>
-
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-          <label><b>Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-          <button class="w3-button w3-block w3-grey w3-section w3-padding" type="submit">Login</button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-          <br>
-          <br>
-          <p>If you don't have account yet go and <a href="signup.html"> register</a></p>
-        </div>
-      </form>
-
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-      </div>
-
-    </div>
-  </div>
-
 
 <main class="w3-container">
 	<div class="w3-row">

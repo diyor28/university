@@ -1,29 +1,29 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
 <html lang="en">
-<head>
-    {% extends 'base.html' %}
-    <meta charset="UTF-8">
-    {% block head %}
+
+{% block head %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'login/base.css' %}">
     <title>Account</title>
-    {% endblock %}
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main/base.css' %}">
+{% endblock %}
+
 {% block body %}
 
 <nav>
-    <div class="navbar-brand">
-        <a href="/smallsite/" class="anc">Home Page</a>
-        <a href="grades/" class="anc">Grades</a>
-    </div>
+    <a href="/smallsite/" class="anb"><i class="fa fa-home"></i> Home Page</a>
+    <a href="/smallsite/profile/grades/" class="anc">Grades</a>
+    <a href="/smallsite/logout/" class="anc" style="float: right">Log Out</a>
 </nav>
 
-<h1>"{{first_name}} {{last_name}} {{email}}"</h1>
+
+<div class="container">
+    <img src="{% static 'images/profile_pic/icon.png' %}" style="width: 100px">
+    <h6>{{first_name}} {{last_name}}</h6>
+    <a href="#">{{email}}</a>
+</div>
 
 
 
 {% endblock %}
-
-</body>
 </html>

@@ -2,31 +2,9 @@
 <html lang="en">
 <head>
     {% extends 'base.html' %}
-    <meta charset="UTF-8">
     {% block head %}
-
     <title>Log In Page</title>
-
-    <style>
-        .anc {
-            font-family: 'Mate', serif;
-            text-decoration: none;
-            color: white;
-            padding: 0 3px;
-            font-size: 18px;
-    	}
-
-        .anc:hover {
-	    	text-decoration: none;
-		    color: #bfbfbf;
-    	}
-
-        nav {
-            background-color: #00acec;
-            padding: 14px 16px;
-    		margin: 0 30px 0 30px;
-    	}
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main/base.css' %}">
 
     {% endblock %}
 </head>

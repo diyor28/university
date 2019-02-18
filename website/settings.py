@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'smallsite.apps.SmallsiteConfig',
     'smallsite',
     'django_extensions'
 ]
@@ -127,6 +128,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# LOGIN_REDIRECT_URL = '/smallsite/'
-# LOGIN_REDIRECT_URL = 'smallsite/home/'
-# LOGOUT_REDIRECT_URL = 'smallsite/home/'
