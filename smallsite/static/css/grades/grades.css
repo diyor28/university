@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.subject {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+}
+
+.grades-table {
+    margin-bottom: 10px;
+}
+
+.grades-navbar {
+        background-color: #00acec;
+        padding: 14px 16px;
+        margin: 0 30px 0 30px;
+    }
+

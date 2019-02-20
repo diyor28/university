@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'website.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -128,3 +129,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL = '/smallsite/'
+
+LOGIN_EXEMPT_URLS = [
+    r'^smallsite/logout/$',
+    r'^smallsite/signup/$',
+    r'^smallsite/projects/$',
+    r'^smallsite/news/$',
+]
+
+
