@@ -9,13 +9,13 @@
       <Comment>default administrative connection database</Comment>
     </database>
     <database id="3" parent="1" name="university">
-      <ObjectId>32964</ObjectId>
+      <ObjectId>16395</ObjectId>
       <IntrospectionStateNumber>123</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
     <role id="4" parent="1" name="diyor">
-      <ObjectId>16393</ObjectId>
+      <ObjectId>16394</ObjectId>
       <Inherit>1</Inherit>
       <CanLogin>1</CanLogin>
       <ConnectionLimit>-1</ConnectionLimit>
@@ -137,107 +137,107 @@
       <Type>index</Type>
     </access-method>
     <sequence id="26" parent="19" name="auth_group_id_seq">
-      <ObjectId>32994</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16496</ObjectId>
+      <StateNumber>585</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="27" parent="19" name="auth_group_permissions_id_seq">
-      <ObjectId>33004</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16506</ObjectId>
+      <StateNumber>585</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="28" parent="19" name="auth_permission_id_seq">
-      <ObjectId>32986</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16488</ObjectId>
+      <StateNumber>585</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="29" parent="19" name="django_admin_log_id_seq">
-      <ObjectId>33093</ObjectId>
-      <StateNumber>1020</StateNumber>
+      <ObjectId>16464</ObjectId>
+      <StateNumber>579</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="30" parent="19" name="django_content_type_id_seq">
-      <ObjectId>32976</ObjectId>
-      <StateNumber>1003</StateNumber>
+      <ObjectId>16454</ObjectId>
+      <StateNumber>577</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="31" parent="19" name="django_migrations_id_seq">
-      <ObjectId>32965</ObjectId>
-      <StateNumber>1002</StateNumber>
+      <ObjectId>16396</ObjectId>
+      <StateNumber>574</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="32" parent="19" name="smallsite_customuser_id_seq">
-      <ObjectId>33035</ObjectId>
-      <StateNumber>1018</StateNumber>
+      <ObjectId>16407</ObjectId>
+      <StateNumber>575</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="33" parent="19" name="smallsite_grades_id_seq">
-      <ObjectId>33145</ObjectId>
-      <StateNumber>1028</StateNumber>
+      <ObjectId>16417</ObjectId>
+      <StateNumber>575</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="34" parent="19" name="smallsite_userprofileinfo_id_seq">
-      <ObjectId>33127</ObjectId>
-      <StateNumber>1026</StateNumber>
+      <ObjectId>16430</ObjectId>
+      <StateNumber>575</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <table id="35" parent="19" name="auth_group">
-      <ObjectId>32996</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16498</ObjectId>
+      <StateNumber>585</StateNumber>
     </table>
     <table id="36" parent="19" name="auth_group_permissions">
-      <ObjectId>33006</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16508</ObjectId>
+      <StateNumber>585</StateNumber>
     </table>
     <table id="37" parent="19" name="auth_permission">
-      <ObjectId>32988</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16490</ObjectId>
+      <StateNumber>585</StateNumber>
     </table>
     <table id="38" parent="19" name="django_admin_log">
-      <ObjectId>33095</ObjectId>
-      <StateNumber>1020</StateNumber>
+      <ObjectId>16466</ObjectId>
+      <StateNumber>579</StateNumber>
     </table>
     <table id="39" parent="19" name="django_content_type">
-      <ObjectId>32978</ObjectId>
-      <StateNumber>1007</StateNumber>
+      <ObjectId>16456</ObjectId>
+      <StateNumber>579</StateNumber>
     </table>
     <table id="40" parent="19" name="django_migrations">
-      <ObjectId>32967</ObjectId>
-      <StateNumber>1002</StateNumber>
+      <ObjectId>16398</ObjectId>
+      <StateNumber>574</StateNumber>
     </table>
     <table id="41" parent="19" name="django_session">
-      <ObjectId>33117</ObjectId>
-      <StateNumber>1024</StateNumber>
+      <ObjectId>16537</ObjectId>
+      <StateNumber>596</StateNumber>
     </table>
     <table id="42" parent="19" name="smallsite_customuser">
-      <ObjectId>33037</ObjectId>
-      <StateNumber>1034</StateNumber>
+      <ObjectId>16409</ObjectId>
+      <StateNumber>575</StateNumber>
     </table>
     <table id="43" parent="19" name="smallsite_grades">
-      <ObjectId>33147</ObjectId>
-      <StateNumber>1028</StateNumber>
+      <ObjectId>16419</ObjectId>
+      <StateNumber>575</StateNumber>
     </table>
     <table id="44" parent="19" name="smallsite_userprofileinfo">
-      <ObjectId>33129</ObjectId>
-      <StateNumber>1026</StateNumber>
+      <ObjectId>16432</ObjectId>
+      <StateNumber>575</StateNumber>
     </table>
   </database-model>
 </dataSource>

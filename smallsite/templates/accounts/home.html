@@ -4,6 +4,16 @@
 <html lang="en">
 {% block head %}
 	{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Exo|Fjalla+One|Josefin+Sans" rel="stylesheet">
+<link rel="stylesheet" href="..\..\static\css\style.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 {% endblock %}
 
@@ -11,177 +21,155 @@
 <body class="w3-light-grey">
 {% block body%}
 
-<h1>WELCOME TVOYU MATI</h1>
+	<sidebar class="w3-sidebar w3-bar-block w3-light-grey w3-card w3-animate-left" style="display: none" id="mySidebar">
+	<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+  <h6 class="w3-center"><b>Навигационная панель:</b></h6>
+  <button class="w3-button w3-block w3-left-align" onclick="myAccFunc()">
+  Учебные программы<i class="fa fa-caret-down"></i>
+  </button>
+  <div id="demoAcc" class="w3-hide w3-white w3-card">
+    <a href="#" class="w3-bar-item w3-button">Бакалавр</a>
+    <a href="#" class="w3-bar-item w3-button">Магистратура</a>
+    <a href="#" class="w3-bar-item w3-button">Докторантура</a>
+  </div>
+  <a href="#" class="w3-bar-item w3-button">Факультеты & <br>
+  Специальности</a>
+  <a href="#" class="w3-bar-item w3-button">Виды обучения</a>
+  <a href="#" class="w3-bar-item w3-button">Кабинет ректора</a>
+</sidebar>
 
-{% if user.is_authenticated %}
 
-<nav>
-	<a href="/smallsite/profile/" class="anc">Profile</a>
-	<a href="/smallsite/news/" class="anc">News</a>
-	<a href="/smallsite/projects/" class="anc">Projects</a>
-	<a href="/smallsite/profile/grades/" class="anc">Grades</a>
-	<a href="/smallsite/logout/" class="anc" style="float: right">Log Out</a>
-</nav>
+<main id="main">
+ <header class="w3-display-container">
+ 	<img src="https://a2.cdn.japantravel.com/photo/23624-129858/800x400!/tokyo-todai-universite-tokyo-129858.jpg" class="bg-img" alt="">
+ 	<div class="w3-display-topleft">
+	<button class="w3-button w3-light-grey w3-xlarge" id="openNav" onclick="w3_open()">&#9776;</button>
+</div>
 
-{% else %}
+  <div class="w3-display-right">
+  	<form action="/action_page.php" class="w3-margin w3-white w3-padding">
+  	  <h1>SignUp</h1>
+  	<div class="form-group">
 
-<nav>
-	<a href="/smallsite/news/" class="anc">News</a>
-	<a href="/smallsite/projects/" class="anc">Projects</a>
-	<a href="/smallsite/signup/" class="anc" style="float: right">Sign Up</a>
-	<a href="/smallsite/#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right">Log In</a>
-</nav>
+  		    <label for="usr"><b>Username:</b></label>
+  		    <input type="text" class="form-control" placeholder="Enter Email" name="usr" required>
+  	</div>
+  	<div class="form-group">
+  	 	 <label for="psw"><b>Password:</b></label>
+  	 	<input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
+  	</div>
 
-{% endif %}
+  	  <button type="submit" class="btn btn-info btn-block">Login</button>
+  	</form>
+  </div>
+ </header>
 
-<main class="w3-container">
-	<div class="w3-row">
-		<section class="w3-col l8 m12 s12 ">
-			<div class="w3-card-2 w3-padding w3-margin w3-white">
-				<h1 class="w3-center">About University</h1>
-				<img src="http://www.purdue.edu/purdue/images/audience/about-banner.jpg" width="45%" alt="University_Pic" style="float: left;" class="w3-margin">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark sticky-top">
+	 <a class="navbar-brand" href="#">LOGO</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#col"><span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="col">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a href="main.html" class="nav-link w3-disabled">Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">LogIn</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">Contact us</a></li>
+		</ul>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Tempora, in necessitatibus?
-					Facilis nobis harum ipsa culpa laborum dolorum quis ab vero doloremque provident, dolor iure animi odio! Sapiente, officiis odio.
-					ipsum dolor sit amet, consectetur adipisicing elit.
-					Optio unde error, cupiditate!
-					Ab dolorum, quidem rem illum consequatur ipsam eligendi incidunt molestias aperiam, a in voluptatibus vero non illo.
-					Dignissimos!</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Quisquam aperiam voluptatibus quasi incidunt blanditiis, earum modi voluptatum expedita porro ipsam necessitatibus nostrum nulla natus culpa nam officiis eligendi veritatis asperiores.
-					ipsum dolor sit amet, consectetur adipisicing elit.
-					Odit sapiente, numquam incidunt perferendis ex, placeat minus, in consequatur libero omnis consectetur ab, architecto rerum doloremque totam fugit voluptatem.
-					A, consectetur.</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Voluptates, perspiciatis praesentium doloribus quas repellat in, quod impedit qui minus eaque necessitatibus dolore dolor a ex ipsa.
-					Porro quia error recusandae. ipsum dolor sit amet, consectetur adipisicing elit.
-					Perferendis sint nemo a, culpa, quia maiores dolorem maxime libero unde, minima explicabo, omnis possimus tempore dolor?
-					Iste doloremque amet similique velit.</p>
-
-			</div>
-			<div class="w3-card-2 w3-margin">
-				<table class="w3-table-all">
-					<tr style="font-size: 18px; font-family: 'Radley', serif;">
-						<th>Faculty</th>
-						<th>Specialisations</th>
-						<th>Exams</th>
-						<th>Price</th>
-						<th>Places</th>
-					</tr>
-
-					<tr>
-						<td>IT</td>
-						<td>Web-developer</td>
-						<td>Informatics </td>
-						<td>$4000</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Programmer</td>
-						<td>Informatics </td>
-						<td>$5000</td>
-						<td>30</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Web-Designer</td>
-						<td>Informatics</td>
-						<td>$3000</td>
-						<td>60</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Programmer</td>
-						<td>Informatics </td>
-						<td>$5000</td>
-						<td>30</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Web-Designer</td>
-						<td>Informatics</td>
-						<td>$3000</td>
-						<td>60</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Programmer</td>
-						<td>Informatics </td>
-						<td>$5000</td>
-						<td>30</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Web-Designer</td>
-						<td>Informatics</td>
-						<td>$3000</td>
-						<td>60</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Programmer</td>
-						<td>Informatics </td>
-						<td>$5000</td>
-						<td>30</td>
-					</tr>
-					<tr>
-						<td>IT</td>
-						<td>Web-Designer</td>
-						<td>Informatics</td>
-						<td>$3000</td>
-						<td>60</td>
-					</tr>
-				</table>
-			</div>
-		</section>
-		<aside class="w3-col l4 m12 s12">
-
-			<div class="w3-card-4 w3-padding w3-margin w3-white">
-				<h3 class="w3-center">Bachelors's Degree</h3>
-				<ul class="w3-ul w3-hoverable">
-					<li><a href="/smallsite/general_information"> General Information</a></li>
-					<li><a href="/smallsite/enrollment/"> Enrollment Rules</a></li>
-					<li><a href="#"> Full-time & Part-time studies</a></li>
-					<li><a href="#"> Fees & Charges</a></li>
-					<li><a href="#"> Specialisations</a></li>
-					<li><a href="#"> Preparatory Courses</a></li>
-					<li><a href="#"> Diploma Exam</a></li>
-				</ul>
-			</div>
-			<div class="w3-card-4 w3-padding w3-margin w3-white">
-				<h3 class="w3-center">Master Degree</h3>
-				<ul class="w3-ul w3-hoverable">
-					<li><a href="#"> General Information</a></li>
-					<li><a href="#"> Enrollmant Rules</a></li>
-					<li><a href="#"> Fees & Charges</a></li>
-					<li><a href="#"> Diploma Exam</a></li>
-				</ul>
-			</div>
-			<div class="w3-card-4 w3-padding w3-margin w3-white">
-				<h3 class="w3-center">Doctoral Courses</h3>
-				<ul class="w3-ul w3-hoverable">
-					<li><a href="#"> General Information</a></li>
-					<li><a href="#"> Courses & Workshops</a></li>
-					<li><a href="#"> Fees & Charges</a></li>
-					<li><a href="#"> For Candidates</a></li>
-				</ul>
-			</div>
-			<div class="w3-card-4 w3-padding w3-margin w3-white w3-center">
-				<h3 class="w3-center">Dean's Office</h3>
-				<p class="p"><i class="fa fa-fw fa-phone"></i> +998933301232</p>
-				<p class="p"><i class="fa fa-fw fa-envelope"></i> diyor28july@gmail.com</p>
-			</div>
-		</aside>
+    	 <form class="form-inline ">
+      <input type="text" class="form-inline" placeholder="Search...">
+    <div class="input-group-append">
+      <button id="btn" type="submit"><i style="transform: scaleX(-1);" class='fas fa-search'></i></button>
+     </div>
+    </form>
 	</div>
-</main>
-<footer class=" w3-container w3-grey w3-margin-top w3-padding-32">
-	<p id="fopa">Site done by T.Malik <br>
+</nav>
+
+<section class="w3-container">
+	<div class="w3-card w3-padding w3-margin ">
+		<h2>Some information</h2>
+		<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero repellendus quis animi, fugit aliquid, obcaecati voluptate autem fuga sint perferendis, asperiores. Inventore perferendis, error vel. Qui nihil, soluta porro amet.</span>
+		<span>Tempora neque deserunt necessitatibus, aspernatur veritatis repellendus beatae reiciendis sint consectetur accusantium explicabo alias, ad? Beatae deleniti dolorum earum voluptatum, unde dolore quod fuga repudiandae, alias, mollitia, sint velit vitae!</span>
+		<span>Eaque accusamus fuga dignissimos soluta ipsam ipsum omnis distinctio deleniti nihil amet delectus, cum deserunt id maxime ut ducimus recusandae rerum commodi error laudantium minima maiores sint quam tenetur. Doloremque.</span></p>
+	</div>
+	<div class="w3-card w3-padding w3-margin ">
+		<h2 >Some information</h2>
+		<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero repellendus quis animi, fugit aliquid, obcaecati voluptate autem fuga sint perferendis, asperiores. Inventore perferendis, error vel. Qui nihil, soluta porro amet.</span>
+		<span>Tempora neque deserunt necessitatibus, aspernatur veritatis repellendus beatae reiciendis sint consectetur accusantium explicabo alias, ad? Beatae deleniti dolorum earum voluptatum, unde dolore quod fuga repudiandae, alias, mollitia, sint velit vitae!</span>
+		<span>Eaque accusamus fuga dignissimos soluta ipsam ipsum omnis distinctio deleniti nihil amet delectus, cum deserunt id maxime ut ducimus recusandae rerum commodi error laudantium minima maiores sint quam tenetur. Doloremque.</span></p>
+	</div>
+	<div class="w3-card w3-padding w3-margin ">
+		<h2>Some information</h2>
+			<table class="w3-table-all">
+				<tr>
+					<th>ID</th>
+					<th>Faculty</th>
+					<th>Course</th>
+				</tr>
+				<tr>
+					<td>1215151</td>
+					<td>IT </td>
+					<td>Bachelor</td>
+				</tr>
+				<tr>
+					<td>1234654</td>
+					<td>Art & Design</td>
+					<td>Magister</td>
+				</tr>
+				<tr>
+					<td>5432111</td>
+					<td>Medicine</td>
+					<td>Doctoral</td>
+				</tr>
+			</table>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col l6 m6 sm12">
+			<div class="w3-card w3-margin w3-padding">
+				<h2>Some Heading</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi autem fugit obcaecati architecto rem enim. Similique optio ratione at consequatur non, vero alias deserunt porro! Inventore quae quam magnam vitae.</p>
+			</div>
+		</div>
+		<div class="w3-col l6 m6 sm12">
+			<div class="w3-card w3-margin w3-padding">
+				<h2>Some Heading</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta vero nulla nihil illum maiores nobis similique molestias nemo repudiandae dolores quidem iusto error, dolor in laboriosam et? Officia, accusantium laborum!</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<footer class="w3-container w3-padding-32">
+ <p>Site done by T.Malik & Diyor<br>
   Copyright&copy;</p>
-</footer>
+  </footer>
+</main>
+
+
+
+	<script>
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-blue";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className =
+    x.previousElementSibling.className.replace(" w3-blue", "");
+  }
+}
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidebar").style.width = "25%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+	</script>
 {% endblock %}
 </body>
 </html>
