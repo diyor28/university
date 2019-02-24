@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>News</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/news.css' %}">
+
+{% endblock %}
+
+
+{% block body %}
+
+    <nav>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
+        <a href="#login/" onclick="document.getElementById('id01').style.display='block'"
+           class="anc" style="float: right; font-size: 16px">Log In</a>
+    </nav>
+
+<div class="main-body">
+    <h1 id="newsh1">Daily News</h1>
+    <div class="main-text">
+
+        <p>
+            <a href="#" class="news-text">
+                <h3 style="margin: 0">Why should you learn Go?
+                </h3>
+            </a>
+
+            <a href="#" class="news-text">
+                <h6 style="padding-left: 20px">Go will be the server language of the future...
+                    <img src="{% static 'images/news/golang.gif' %}" class="news-image">
+                </h6>
+            </a>
+        </p>
+
+        <p>
+            <a href="#" class="news-text">
+                <h3 style="margin: 0">Consumer Group Says Self-Driving Cars Aren’t Ready for Public Roads</h3>
+                <h6 style="padding-left: 20px">AI for public transportation is becoming increasingly...</h6>
+                <img src="{% static 'images/news/news3.jpeg' %}" class="news-image">
+            </a>
+        </p>
+
+        <p>
+            <a href="#" class="news-text">
+                <h3 style="margin: 0">Components Roundup: New sensors, Jetson-based AI development kit</h3>
+                <h6 style="padding-left: 20px">Jetson-base AI development kit is now sold for ...</h6>
+                <img src="{% static 'images/news/news5.jpeg' %}" class="news-image">
+            </a>
+        </p>
+
+        <p>
+            <a href="#" class="news-text">
+                <h3 style="margin: 0">Robot Investments Weekly: Love Blooms for Self-Driving, Robotics Firms</h3>
+                <h6 style="padding-left: 20px">Self-Driving Robotics firm is launching its first...</h6>
+                <img src="{% static 'images/news/news4.jpeg' %}" class="news-image">
+            </a>
+        </p>
+
+        <p>
+            <a href="#" class="news-text">
+                <h3 style="margin: 0">Consumer Group Says Self-Driving Cars Aren’t Ready for Public Roads</h3>
+                <h6 style="padding-left: 20px">Self-Driving cars aren't ready for public says...</h6>
+                <img src="{% static 'images/news/news6.jpeg' %}" class="news-image">
+            </a>
+        </p>
+
+    </div>
+</div>
+{% endblock %}
+
+</html>

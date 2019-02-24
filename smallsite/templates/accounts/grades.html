@@ -6,15 +6,14 @@
     <title>Grades</title>
     {% load static %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/grades/grades.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/grades.css' %}">
 
 {% endblock %}
 
 {% block body %}
 
     <nav class="grades-navbar">
-        <a href="/smallsite/" class="anb"><i class="fa fa-home"></i> Home Page</a>
+        <a href="{% url 'home' %}" class="anb"><i class="fa fa-home"></i> Home Page</a>
     </nav>
 
     <div class="container">

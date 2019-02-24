@@ -17,7 +17,6 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 from django.conf.urls import url
-# from website.smallsite import views
 from . views import home_page
 
 

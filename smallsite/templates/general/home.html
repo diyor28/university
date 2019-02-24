@@ -3,97 +3,33 @@
 
 <html lang="en">
 {% block head %}
-	<style>
-  	a {
-		font-family: 'Mate', serif;
-		text-decoration: none;
-		padding: 0 3px;
-		color: grey;
-	}
-	a:hover {
-		text-decoration: none;
-		color: black
-	}
-	h3,h1 {
-		font-family: 'Radley', serif;
-	}
-	p {
-		font-family: 'Hind Siliguri', sans-serif;
-	}
-	.anc {
-		font-family: 'Mate', serif;
-		text-decoration: none;
-		color: white;
-		padding: 0 3px;
-	}
-	.anc:hover {
-		text-decoration: none;
-		color: #bfbfbf;
-	}
-	#logo {
-		font-weight: 600;
-		font-size: 16px;
-		text-decoration: none;
-		color: white;
-		padding-right: 6px;
-		font-family: 'Mate', serif;
-	}
-	#logo:hover {
-		color: white;
-		text-decoration: none;
-	}
-	nav {
-		background-color: grey;
-		margin: 0;
-		padding: 6px 16px;
-	}
-	#fopa {
-		font-family: 'Fondamento', cursive;
-	}
-  </style>
+	{% load static %}
 {% endblock %}
 
 
 <body class="w3-light-grey">
 {% block body%}
 
+{% if user.is_authenticated %}
+
 <nav>
-	<a href="#" id="logo">LOGO</a>
-	<a href="studinfo/" class="anc">Students</a>
-	<a href="about/" class="anc">About us</a>
-	<a href="signup/" class="anc" style="float: right">Sign Up</a>
-	<a href="login/" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right;">Log In</a>
+	<a href="{% url 'profile' %}" class="anc">Profile</a>
+	<a href="{% url 'news' %}" class="anc">News</a>
+	<a href="{% url 'projects' %}" class="anc">Projects</a>
+	<a href="{% url 'grades' %}" class="anc">Grades</a>
+	<a href="{% url 'logout' %}}" class="anc" style="float: right">Log Out</a>
 </nav>
 
-<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+{% else %}
 
-      <div class="w3-center"><br>
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-black w3-display-topright" title="Close Modal">&times;</span>
-      </div>
+<nav>
+	<a href="/smallsite/news/" class="anc">News</a>
+	<a href="/smallsite/projects/" class="anc">Projects</a>
+	<a href="/smallsite/signup/" class="anc" style="float: right">Sign Up</a>
+	<a href="/smallsite/#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right">Log In</a>
+</nav>
 
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <label><b>Username</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-          <label><b>Password</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-          <button class="w3-button w3-block w3-grey w3-section w3-padding" type="submit">Login</button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-          <br>
-          <br>
-          <p>If you don't have account yet go and <a href="signup.html"> register</a></p>
-        </div>
-      </form>
-
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-      </div>
-
-    </div>
-  </div>
-
+{% endif %}
 
 <main class="w3-container">
 	<div class="w3-row">
@@ -199,13 +135,13 @@
 				</table>
 			</div>
 		</section>
-		<aside class="w3-col l4 m12 s12">
 
+		<aside class="w3-col l4 m12 s12">
 			<div class="w3-card-4 w3-padding w3-margin w3-white">
 				<h3 class="w3-center">Bachelors's Degree</h3>
 				<ul class="w3-ul w3-hoverable">
-					<li><a href="#"> General Information</a></li>
-					<li><a href="#"> Enrollment Rules</a></li>
+					<li><a href="/smallsite/general_information"> General Information</a></li>
+					<li><a href="/smallsite/enrollment/"> Enrollment Rules</a></li>
 					<li><a href="#"> Full-time & Part-time studies</a></li>
 					<li><a href="#"> Fees & Charges</a></li>
 					<li><a href="#"> Specialisations</a></li>
@@ -234,15 +170,17 @@
 			<div class="w3-card-4 w3-padding w3-margin w3-white w3-center">
 				<h3 class="w3-center">Dean's Office</h3>
 				<p class="p"><i class="fa fa-fw fa-phone"></i> +998933301232</p>
-				<p class="p"><i class="fa fa-fw fa-envelope"></i> Dior@mail.com</p>
+				<p class="p"><i class="fa fa-fw fa-envelope"></i> diyor28july@gmail.com</p>
 			</div>
 		</aside>
 	</div>
 </main>
+
 <footer class=" w3-container w3-grey w3-margin-top w3-padding-32">
 	<p id="fopa">Site done by T.Malik <br>
   Copyright&copy;</p>
 </footer>
+
 {% endblock %}
 </body>
 </html>

@@ -43,6 +43,23 @@ class UserProfileInfoForm(forms.ModelForm):
         fields = ('first_name', 'last_name', )
 
 
+class ProfileInfoChangeForm(forms.ModelForm):
+    first_name = forms.CharField(label='First name')
+    last_name = forms.CharField(label='Last name')
+
+    class Meta:
+        model = UserProfileInfo
+        fields = ('first_name', 'last_name')
+
+    def save(self, commit=True):
+        user = super(ProfileInfoChangeForm, self).save(commit=False)
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        if commit:
+            user.save()
+        return user
+
+
 class CustomUserAdminCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""

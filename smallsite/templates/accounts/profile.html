@@ -5,24 +5,27 @@
 {% block head %}
     {% load static %}
     <title>Account</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/profile.css' %}">
 {% endblock %}
 
 {% block body %}
 
 <nav>
-    <a href="/smallsite/" class="anb"><i class="fa fa-home"></i> Home Page</a>
-    <a href="/smallsite/profile/grades/" class="anc">Grades</a>
-    <a href="/smallsite/logout/" class="anc" style="float: right">Log Out</a>
+    <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
+    <a href="{% url 'grades' %}" class="anc">Grades</a>
+    <a href="{% url 'logout' %}" class="anc" style="float: right">Log Out</a>
 </nav>
 
 
-<div class="container">
-    <img src="{% static 'images/profile_pic/icon.png' %}" style="width: 100px">
-    <h6>{{first_name}} {{last_name}}</h6>
-    <a href="#">{{email}}</a>
+<div class="main-body">
+    <div class="profile">
+        <img src="{% static 'images/profile_pic/icon.png' %}" class="profile-picture">
+        <h6 style="padding-top: 5px">{{first_name}} {{last_name}}</h6>
+        <li><a href="{% url 'edit-profile' %}" class="abc">Edit Personal Info</a></li>
+        <li><a href="{% url 'upload-picture' %}" class="abc">Upload Profile Picture </a></li>
+        <li><a href="{% url 'reset-password' %}" class="abc">Reset Password </a></li>
+    </div>
 </div>
-
 
 
 {% endblock %}

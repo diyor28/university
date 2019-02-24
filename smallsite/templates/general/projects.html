@@ -7,23 +7,20 @@
 {% block head %}
     <title>Projects</title>
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/projects.css' %}">
 {% endblock %}
 
 
 {% block body %}
 
 <nav>
-    <a href="/smallsite/" class="anb"><i class="fa fa-home"></i> Home Page</a>
-	<a href="/smallsite/signup/" class="anc" style="float: right; font-size: 16px">Sign Up</a>
-    <a href="#login/" onclick="document.getElementById('id01').style.display='block'"
-       class="anc" style="float: right; font-size: 16px">Log In</a>
+    <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
 </nav>
 
 
-
-
-<div class="container main-text">
-    <h1 style="color: cornflowerblue">Arudino Projects</h1>
+<div class="main-body">
+    <h1 class="projects-head">Arudino Projects</h1>
+    <div class="main-text">
     <h2>What is Arduino?</h2>
 
     <p>
@@ -39,7 +36,7 @@
         source codes and videos. You can also browse below pages to get new arduino project ideas.
     </p>
 
-    <h1 style="color: cornflowerblue">Industrial Robotics</h1>
+    <h1 class="projects-head">Industrial Robotics</h1>
 
     <h2>What is Robotics?</h2>
 
@@ -104,7 +101,7 @@
         or artificial intelligence and gain a clear understanding of the field and what you need to
         excel. Many courses are self-paced so you can enroll now and start today.
     </p>
-
+    </div>
 </div>
 
 {% endblock %}
