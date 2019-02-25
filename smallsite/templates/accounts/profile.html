@@ -20,7 +20,7 @@
 <div class="main-body">
     <div class="profile">
         <img src="{% static 'images/profile_pic/icon.png' %}" class="profile-picture">
-        <h6 style="padding-top: 5px">{{first_name}} {{last_name}}</h6>
+        <h6 style="padding-top: 5px">{{ user.userprofileinfo.first_name }} {{ user.userprofileinfo.last_name }}</h6>
         <li><a href="{% url 'edit-profile' %}" class="abc">Edit Personal Info</a></li>
         <li><a href="{% url 'upload-picture' %}" class="abc">Upload Profile Picture </a></li>
         <li><a href="{% url 'reset-password' %}" class="abc">Reset Password </a></li>

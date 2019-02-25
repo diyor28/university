@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf.urls import url
 
 from .views import (
-    SignUpView, LogInView,
+    SignUpView, ResetPasswordView,
     HomeView, ProfileView,
     GradesView,
     ProjectsView, NewsView,
@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^profile/edit/$', ProfileInfoChangeView.as_view(), name='edit-profile'),
     url(r'^profile/upload/$', HomeView.as_view(), name='upload-picture'),
-    url(r'^profile/reset-password/$', HomeView.as_view(), name='reset-password'),
+    url(r'^profile/reset-password/$', ResetPasswordView.as_view(), name='reset-password'),
     ]

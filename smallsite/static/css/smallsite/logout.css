@@ -18,18 +18,42 @@ nav {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
     }
 
-.main-body {
-    margin: 25px 30px 0px 30px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
-}
+a {
+    font-family: 'Mate', serif;
+    text-decoration: none;
+    padding: 0 3px;
+    color: grey;
+	}
 
-.main-text {
-    margin: 10px 100px 0 100px;
-    padding-bottom: 50px;
-}
+a:hover {
+    text-decoration: none;
+    color: black
+	}
 
-.projects-head {
-    padding-top: 10px;
-    color: cornflowerblue;
-    text-align: center;
-}
+h3,h1 {
+    font-family: 'Radley', serif;
+	}
+
+p {
+    font-family: 'Hind Siliguri', sans-serif;
+    }
+
+
+#fopa {
+    font-family: 'Fondamento', cursive;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

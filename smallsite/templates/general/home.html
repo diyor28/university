@@ -4,6 +4,7 @@
 <html lang="en">
 {% block head %}
 	{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/home.css' %}">
 {% endblock %}
 
 
@@ -11,24 +12,20 @@
 {% block body%}
 
 {% if user.is_authenticated %}
-
-<nav>
-	<a href="{% url 'profile' %}" class="anc">Profile</a>
-	<a href="{% url 'news' %}" class="anc">News</a>
-	<a href="{% url 'projects' %}" class="anc">Projects</a>
-	<a href="{% url 'grades' %}" class="anc">Grades</a>
-	<a href="{% url 'logout' %}}" class="anc" style="float: right">Log Out</a>
-</nav>
-
+    <nav>
+        <a href="{% url 'profile' %}" class="anc">Profile</a>
+        <a href="{% url 'news' %}" class="anc">News</a>
+        <a href="{% url 'projects' %}" class="anc">Projects</a>
+        <a href="{% url 'grades' %}" class="anc">Grades</a>
+        <a href="{% url 'logout' %}" class="anc" style="float: right">Log Out</a>
+    </nav>
 {% else %}
-
-<nav>
-	<a href="/smallsite/news/" class="anc">News</a>
-	<a href="/smallsite/projects/" class="anc">Projects</a>
-	<a href="/smallsite/signup/" class="anc" style="float: right">Sign Up</a>
-	<a href="/smallsite/#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right">Log In</a>
-</nav>
-
+    <nav>
+        <a href="{% url 'news' %}" class="anc">News</a>
+        <a href="{% url 'projects' %}" class="anc">Projects</a>
+        <a href="{% url 'signup' %}" class="anc" style="float: right">Sign Up</a>
+        <a href="#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right">Log In</a>
+    </nav>
 {% endif %}
 
 <main class="w3-container">

@@ -3,8 +3,12 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
-from .forms import SignUpForm, LogInForm, UserProfileInfoForm, ProfileInfoChangeForm
 from .models import UserProfileInfo
+
+from .forms import (
+    SignUpForm, LogInForm,
+    UserProfileInfoForm, ProfileInfoChangeForm,
+    ResetPasswordForm)
 
 
 class SignUpView(CreateView):
@@ -111,16 +115,7 @@ class ProfileView(CreateView):
     template_name = 'accounts/profile.html'
 
     def get(self, request, *args, **kwargs):
-        email = request.user.email
-        query = UserProfileInfo.objects.all().filter(user=request.user)[0]
-        print(query)
-        first_name = query.first_name
-        last_name = query.last_name
-
-        context = {"email": email,
-                   "first_name": first_name,
-                   "last_name": last_name}
-
+        context = {}
         return render(request, template_name=self.template_name, context=context)
 
 
@@ -128,7 +123,8 @@ class GradesView(CreateView):
     template_name = 'accounts/grades.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, template_name=self.template_name, context={})
+        context = {}
+        return render(request, template_name=self.template_name, context=context)
 
 
 class ProjectsView(CreateView):
@@ -157,7 +153,7 @@ class LogOutView(CreateView):
 
 
 class ProfileInfoChangeView(CreateView):
-    template_name = 'accounts/change_profile_info.html'
+    template_name = 'accounts/edit_profile.html'
     form_class = ProfileInfoChangeForm
 
     def get(self, request, *args, **kwargs):
@@ -166,11 +162,31 @@ class ProfileInfoChangeView(CreateView):
         return render(request, template_name=self.template_name, context=context)
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, instance=request.user)
         if form.is_valid():
-            user = form.save()
+            form.save()
             return redirect(reverse("profile"))
 
         context = {"form": form}
         return render(request, template_name=self.template_name, context=context)
+
+
+class ResetPasswordView(CreateView):
+    template_name = 'accounts/reset_password.html'
+    form_class = ResetPasswordForm
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        context = {"form": form}
+        return render(request, template_name=self.template_name, context=context)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("profile"))
+
+        context = {"form": form}
+        return render(request, template_name=self.template_name, context=context)
+
 

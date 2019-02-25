@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 {% extends 'base.html' %}
 
 {% block head %}
@@ -12,69 +13,71 @@
 
 {% block body %}
 
-    <nav class="grades-navbar">
-        <a href="{% url 'home' %}" class="anb"><i class="fa fa-home"></i> Home Page</a>
+    <nav>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
     </nav>
 
-    <div class="container">
+    <div class="main-body">
+        <div class="main-text">
+            {% if user.is_authenticated %}
+                <h1 id="student-name">Student name: {{ user.userprofileinfo.first_name }} {{ user.userprofileinfo.last_name }}</h1>
 
-    {% if user.is_authenticated %}
+                <div class="w3-card-2 w3-margin">
+                    <table class="w3-table-all">
+                    <tr class="grades-table">
+                        <th style="font-size: 18px">Subject:</th>
+                        <th style="font-size: 18px">Fist Semester</th>
+                        <th style="font-size: 18px">Second Semester</th>
+                        <th style="font-size: 18px">Overall Mark</th>
+                    </tr>
+                    <tr class="grades-table">
+                        <td class="subject">Chemistry</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
 
-        <h1>Student name: {{full_name}}</h1>
+                    <tr class="grades-table">
+                        <td class="subject">English</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
 
-        <div class="w3-card-2 w3-margin">
-            <table class="w3-table-all">
-            <tr class="grades-table">
-                <th style="font-size: 18px">Subject:</th>
-                <th style="font-size: 18px">Semester 1st:</th>
-                <th style="font-size: 18px">Semester 2nd:</th>
-                <th style="font-size: 18px">Total:</th>
-            </tr>
-            <tr class="grades-table">
-                <td class="subject">Chemistry</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-            </tr>
+                    <tr>
+                        <td class="subject">Geography</td>
+                        <td class="grades-table">5</td>
+                        <td class="grades-table">5</td>
+                        <td>5</td>
+                    </tr>
 
-            <tr class="grades-table">
-                <td class="subject">English</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-            </tr>
+                    <tr class="grades-table">
+                        <td class="subject">Math</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
 
-            <tr>
-                <td class="subject">Geography</td>
-                <td class="grades-table">5</td>
-                <td class="grades-table">5</td>
-                <td>5</td>
-            </tr>
+                    <tr class="grades-table">
+                        <td class="subject">Physics</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>5</td>
+                    </tr>
 
-            <tr class="grades-table">
-                <td class="subject">Math</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-            </tr>
+                </table>
+                </div>
+                {% else %}
+                <h4>You need to be logged in to see your grades</h4>
+                <a href="smallsite/login/"></a>
+                <h4>Or sign up if you don't have an account</h4>
+                <a href="smallsite/login/"></a>
 
-            <tr class="grades-table">
-                <td class="subject">Physics</td>
-                <td>5</td>
-                <td>5</td>
-                <td>5</td>
-            </tr>
+                {% endif %}
 
-        </table>
         </div>
-        {% else %}
-        <h4>You need to be logged in to see your grades</h4>
-        <a href="smallsite/login/"></a>
-        <h4>Or sign up if you don't have an account</h4>
-        <a href="smallsite/login/"></a>
-
-        {% endif %}
     </div>
+
 {% endblock %}
 
 

@@ -1,15 +1,14 @@
-<html>
-
 {% extends 'base.html' %}
-<meta charset="UTF-8">
+
 {% block head %}
-    <title>Log In Page</title>
+    <title>Log Out Page</title>
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/logout.css' %}">
 {% endblock %}
 
 {% block body %}
     <nav>
-        <a href="{% url 'home' %}" class="anb"><i class="fa fa-home"></i> Home Page</a>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
         <a href="{% url 'news' %}" class="anc">News</a>
         <a href="{% url 'projects' %}" class="anc">Projects</a>
         <a href="{% url 'signup' %}" class="anc" style="float: right">Sign Up</a>
@@ -17,5 +16,3 @@
 
     <h1 style="margin: 20px 0px 0px 30px">You are logged out.</h1>
 {% endblock %}
-
-</html>

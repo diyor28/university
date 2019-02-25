@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.forms import ReadOnlyPasswordHashField, PasswordChangeForm
 from .models import CustomUser, UserProfileInfo
 
 
@@ -43,20 +43,56 @@ class UserProfileInfoForm(forms.ModelForm):
         fields = ('first_name', 'last_name', )
 
 
+class ResetPasswordForm(forms.ModelForm):
+    new_password1 = forms.CharField()
+    new_password2 = forms.CharField()
+
+    class Meta:
+        model = CustomUser
+        fields = ('password', )
+
+    def clean(self):
+        password = self.cleaned_data.get('password')
+        new_password1 = self.cleaned_data.get('new_password1')
+        new_password2 = self.cleaned_data.get('new_password2')
+
+        if not self.instance.check_password(password):
+            raise forms.ValidationError('Password is incorrect')
+
+        if not new_password1 == new_password2:
+            raise forms.ValidationError('Passwords do not match')
+
+        if self.instance.check_password(new_password2):
+            raise forms.ValidationError('New password can not be the same as old')
+
+        return self.cleaned_data
+
+    def save(self, commit=True):
+        user = super(ResetPasswordForm, self).save(commit=False)
+        user.set_password(self.cleaned_data.get('new_password1'))
+        if commit:
+            user.save()
+        return user
+
+
 class ProfileInfoChangeForm(forms.ModelForm):
     first_name = forms.CharField(label='First name')
     last_name = forms.CharField(label='Last name')
 
     class Meta:
-        model = UserProfileInfo
-        fields = ('first_name', 'last_name')
+        model = CustomUser
+        fields = ('email', 'first_name', 'last_name')
 
     def save(self, commit=True):
         user = super(ProfileInfoChangeForm, self).save(commit=False)
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
+        user.userprofileinfo.first_name = self.cleaned_data['first_name']
+        user.userprofileinfo.last_name = self.cleaned_data['last_name']
+
         if commit:
             user.save()
+            user.userprofileinfo.save()
+
         return user
 
 

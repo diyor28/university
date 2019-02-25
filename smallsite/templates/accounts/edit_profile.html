@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Change Profile Info</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/edit_profile.css' %}">
+{% endblock %}
+
+{% block body%}
+
+    <nav>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
+    </nav>
+
+
+<div style="margin: 10px 15px 10px 15px">
+    <form class="w3-card-4 w3-margin w3-container" method="post">
+        {% csrf_token %}
+
+        <h3 class="w3-center" id="changeinfo">Change Personal Information</h3>
+        <hr>
+        <p>
+            <label>Email:</label>
+            <input type="email" class="w3-input w3-border w3-round" name="email" value="{{ user.email }}" required>
+        </p>
+
+        <p>
+            <label>First Name:</label>
+            <input type="text" class="w3-input w3-border w3-round" name="first_name" value="{{ user.userprofileinfo.first_name }}">
+        </p>
+
+        <p>
+            <label>Last Name:</label>
+            <input type="text" class="w3-input w3-border w3-round" name="last_name" value="{{ user.userprofileinfo.last_name }}">
+        </p>
+        <button class="w3-button w3-padding w3-center w3-black w3-block w3-margin-bottom" id="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
