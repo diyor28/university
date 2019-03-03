@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'smallsite',
-    'django_extensions'
+    'adminpage',
 ]
 
 AUTH_USER_MODEL = 'smallsite.CustomUser'
@@ -58,10 +59,19 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'website.urls'
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'website/static'),
+    os.path.join(BASE_DIR, 'smallsite/static'),
+    os.path.join(BASE_DIR, 'adminpage/static'),
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'smallsite/templates'),
+                 os.path.join(BASE_DIR, 'website/templates'),
+                 os.path.join(BASE_DIR, 'adminpage/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,13 +139,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_URL = '/smallsite/'
+LOGIN_URL = '//'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'smallsite\media')
 
 LOGIN_EXEMPT_URLS = [
-    r'^smallsite/logout/$',
-    r'^smallsite/signup/$',
-    r'^smallsite/projects/$',
-    r'^smallsite/news/$',
+    r'^accounts/logout/$',
+    r'^accounts/signup/$',
+    r'^accounts/$',
+    r'^news/$',
+    r'^projects/$'
 ]
 
 

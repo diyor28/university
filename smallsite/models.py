@@ -72,20 +72,22 @@ class CustomUser(AbstractBaseUser):
         return self.admin
 
 
-class Grades(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    chemistry = models.CharField(default='-', max_length=255)
-    math = models.CharField(default='-', max_length=255)
-    physics = models.CharField(default='-', max_length=255)
-    geography = models.CharField(default='-', max_length=255)
-    english = models.CharField(default='-', max_length=255)
+class Subject(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    subject = models.CharField(default='Subject', max_length=255)
+    semester1 = models.CharField(default='-', max_length=30)
+    semester2 = models.CharField(default='-', max_length=30)
+    overall = models.CharField(default='-', max_length=30)
 
 
 class UserProfileInfo(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255, default='')
     last_name = models.CharField(max_length=255, default='')
-    # profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+    profile_pic = models.ImageField(upload_to='profile_pics/', default='profile_pics/default/default.png', blank=True)
 
     def __str__(self):
         return self.user.email
+
+
+

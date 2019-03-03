@@ -1,0 +1,19 @@
+.students {
+    margin: 20px 0 0 50px;
+}
+
+.student-picture{
+    width: 40px;
+}
+
+#title {
+    border-color: #417690;
+    background-color: #417690;
+}
+
+#title-text {
+    font-weight: lighter;
+    padding: 12px 0 12px 30px;
+    color: whitesmoke;
+    font-size: 30px;
+}

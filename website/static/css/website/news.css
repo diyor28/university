@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 .anc {
     font-family: 'Mate', serif;
     text-decoration: none;
@@ -20,16 +18,25 @@ nav {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
     }
 
+a {
+    font-family: 'Mate', serif;
+    text-decoration: none;
+    padding: 0 3px;
+    color: grey;
+	}
 
-.subject {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
-}
+a:hover {
+    text-decoration: none;
+    color: black
+	}
 
-.grades-table {
-    margin-bottom: 10px;
-}
+h3,h1 {
+    font-family: 'Radley', serif;
+	}
+
+p {
+    font-family: 'Hind Siliguri', sans-serif;
+    }
 
 .main-body {
     margin: 25px 30px 0px 30px;
@@ -39,18 +46,26 @@ nav {
 .main-text {
     margin: 10px 100px 0 100px;
     padding-bottom: 50px;
-    padding-top: 35px;
 }
 
-#student-name {
+.news-image {
+    position: absolute;
+    margin-left: 200px;
+    width: 100px;
+    }
+
+.news-text:hover {
+    color: darkgray;
+}
+
+.news-text {
+    margin: 0;
+    color: black;
+    font-weight: bold;
+}
+
+#newsh1 {
     text-align: center;
-}
-
-#profile {
-    width: 40px;
-    border-radius: 40px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #7e7d7d;
-    background-color: white;
+    font-family: 'Times New Roman';
+    padding: 10px 10px 0px 10px;
 }

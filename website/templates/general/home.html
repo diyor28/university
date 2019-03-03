@@ -4,7 +4,7 @@
 <html lang="en">
 {% block head %}
 	{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/website/home.css' %}">
 {% endblock %}
 
 
@@ -13,17 +13,19 @@
 
 {% if user.is_authenticated %}
     <nav>
-        <a href="{% url 'profile' %}" class="anc">Profile</a>
+        <a href="{% url 'smallsite:profile' %}" class="anc"><img src="{% static 'images/default.png' %}" id="profile"></a>
         <a href="{% url 'news' %}" class="anc">News</a>
         <a href="{% url 'projects' %}" class="anc">Projects</a>
-        <a href="{% url 'grades' %}" class="anc">Grades</a>
-        <a href="{% url 'logout' %}" class="anc" style="float: right">Log Out</a>
+        <a href="{% url 'smallsite:logout' %}" class="anc" style="float: right">Log Out</a>
+        {% if user.is_admin %}
+            <a href="{% url 'adminpage:admin' %}" class="anc">Admin Page</a>
+        {% endif %}
     </nav>
 {% else %}
     <nav>
         <a href="{% url 'news' %}" class="anc">News</a>
         <a href="{% url 'projects' %}" class="anc">Projects</a>
-        <a href="{% url 'signup' %}" class="anc" style="float: right">Sign Up</a>
+        <a href="{% url 'smallsite:signup' %}" class="anc" style="float: right">Sign Up</a>
         <a href="#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right">Log In</a>
     </nav>
 {% endif %}

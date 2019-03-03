@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import ReadOnlyPasswordHashField, PasswordChangeForm
-from .models import CustomUser, UserProfileInfo
+from .models import CustomUser, UserProfileInfo, Subject
 
 
 class LogInForm(forms.Form):
@@ -40,7 +40,7 @@ class UserProfileInfoForm(forms.ModelForm):
 
     class Meta:
         model = UserProfileInfo
-        fields = ('first_name', 'last_name', )
+        fields = ('first_name', 'last_name', 'profile_pic')
 
 
 class ResetPasswordForm(forms.ModelForm):
@@ -76,12 +76,23 @@ class ResetPasswordForm(forms.ModelForm):
 
 
 class ProfileInfoChangeForm(forms.ModelForm):
-    first_name = forms.CharField(label='First name')
-    last_name = forms.CharField(label='Last name')
+    email = forms.EmailField(label='Email',
+                             widget=forms.EmailInput(attrs={'class': 'w3-input w3-border w3-round'
+                                                            }))
+
+    first_name = forms.CharField(label='First name',
+                                 widget=forms.TextInput(attrs={'class': 'w3-input w3-border w3-round'
+                                                               }))
+    last_name = forms.CharField(label='Last name',
+                                widget=forms.TextInput(attrs={'class': 'w3-input w3-border w3-round'
+                                                              }))
+
+    profile_pic = forms.ImageField(label='Choose File', required=False,
+                                   widget=forms.ClearableFileInput(attrs={'class': 'image-field'}))
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'first_name', 'last_name')
+        fields = ('email', 'first_name', 'last_name', 'profile_pic')
 
     def save(self, commit=True):
         user = super(ProfileInfoChangeForm, self).save(commit=False)
@@ -94,6 +105,10 @@ class ProfileInfoChangeForm(forms.ModelForm):
             user.userprofileinfo.save()
 
         return user
+
+
+class EditGradesForm(forms.ModelForm):
+    pass
 
 
 class CustomUserAdminCreationForm(forms.ModelForm):

@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
-from .models import UserProfileInfo
+from .models import UserProfileInfo, Subject
 
 from .forms import (
     SignUpForm, LogInForm,
@@ -38,6 +38,7 @@ class SignUpView(CreateView):
     def post(self, request, *args, **kwargs):
         user_form = self.form_class(request.POST)
         profile_form = UserProfileInfoForm(request.POST)
+        subject = Subject()
 
         if user_form.is_valid() and profile_form.is_valid():
 
@@ -46,6 +47,8 @@ class SignUpView(CreateView):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
+            subject.user = user
+            subject.save()
 
             self.registered = True
 
@@ -84,30 +87,20 @@ class LogInView(CreateView):
         return render(request, template_name=self.template_name, context=context)
 
 
-class HomeView(CreateView):
-    template_name = 'general/home.html'
-    form_class = LogInForm
+class LogOutView(CreateView):
+    template_name = 'accounts/logout.html'
 
     def get(self, request, *args, **kwargs):
+        logout(request)
         context = {}
         return render(request, template_name=self.template_name, context=context)
 
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get("password")
-            user = authenticate(request, email=email, password=raw_password)
-            if user is None:
-                return render(request, template_name=self.template_name,
-                              context={"form": form,
-                                       "error_message": "Password or email entered are incorrect"})
 
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            login(request, user)
-            return redirect(reverse("profile"))
+class GradesView(CreateView):
+    template_name = 'accounts/grades.html'
 
-        context = {'form': form}
+    def get(self, request, *args, **kwargs):
+        context = {"grades": Subject.objects.filter(user=request.user)}
         return render(request, template_name=self.template_name, context=context)
 
 
@@ -119,45 +112,13 @@ class ProfileView(CreateView):
         return render(request, template_name=self.template_name, context=context)
 
 
-class GradesView(CreateView):
-    template_name = 'accounts/grades.html'
-
-    def get(self, request, *args, **kwargs):
-        context = {}
-        return render(request, template_name=self.template_name, context=context)
-
-
-class ProjectsView(CreateView):
-    template_name = 'general/projects.html'
-
-    def get(self, request, *args, **kwargs):
-        context = {}
-        return render(request, template_name=self.template_name, context=context)
-
-
-class NewsView(CreateView):
-    template_name = 'general/news.html'
-
-    def get(self, request, *args, **kwargs):
-        context = {}
-        return render(request, template_name=self.template_name, context=context)
-
-
-class LogOutView(CreateView):
-    template_name = 'accounts/logout.html'
-
-    def get(self, request, *args, **kwargs):
-        logout(request)
-        context = {}
-        return render(request, template_name=self.template_name, context=context)
-
-
 class ProfileInfoChangeView(CreateView):
     template_name = 'accounts/edit_profile.html'
     form_class = ProfileInfoChangeForm
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
+        form = self.form_class(initial={'first_name': request.user.userprofileinfo.first_name,
+                                        'last_name': request.user.userprofileinfo.last_name}, instance=request.user)
         context = {"form": form}
         return render(request, template_name=self.template_name, context=context)
 
@@ -165,7 +126,7 @@ class ProfileInfoChangeView(CreateView):
         form = self.form_class(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect(reverse("profile"))
+            return redirect(reverse("smallsite:profile"))
 
         context = {"form": form}
         return render(request, template_name=self.template_name, context=context)

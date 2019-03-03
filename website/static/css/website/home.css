@@ -18,34 +18,62 @@ nav {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
     }
 
-
-.main-body {
-    margin: 25px 30px 0 30px;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
-}
-
-.abc {
+a {
     font-family: 'Mate', serif;
     text-decoration: none;
-    color: black;
     padding: 0 3px;
-    }
+    color: grey;
+	}
 
-.abc:hover {
+a:hover {
     text-decoration: none;
-    color: #515151;
+    color: black
+	}
+
+h3,h1 {
+    font-family: 'Radley', serif;
+	}
+
+p {
+    font-family: 'Hind Siliguri', sans-serif;
     }
 
-.profile {
-    padding-top: 10px;
-    padding-left: 30px;
-}
 
-.profile-picture {
-    width: 100px;
-    border-radius: 100%;
+#fopa {
+    font-family: 'Fondamento', cursive;
+    }
+
+#profile {
+    width: 40px;
+    border-radius: 40px;
     border-style: solid;
     border-width: 2px;
     border-color: #7e7d7d;
     background-color: white;
 }
+
+.vl {
+    border-left: 2px solid gray;
+    height: 20px;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

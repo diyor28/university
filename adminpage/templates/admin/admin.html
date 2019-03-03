@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Admin Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/admin.css' %}">
+{% endblock %}
+
+
+{% block body %}
+    <div id="title">
+        <h1 id="title-text">Admin Page</h1>
+    </div>
+
+    <div class="students">
+        {% for student in students %}
+            <p>
+                <a href=""><img src="{{ student.userprofileinfo.profile_pic.url }}" class="student-picture">
+                    {{ student.userprofileinfo.first_name }}
+                    {{ student.userprofileinfo.last_name }}</a>
+            </p>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

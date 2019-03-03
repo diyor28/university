@@ -1,6 +1,7 @@
 import re
 from django.conf import settings
 from django.shortcuts import redirect
+from django.shortcuts import reverse
 
 
 EXEMPT_URLS = [re.compile(settings.LOGIN_URL.lstrip('/'))]
@@ -22,13 +23,7 @@ class LoginRequiredMiddleware:
         path = request.path_info.lstrip('/')
 
         if not request.user.is_authenticated:
-            for url in EXEMPT_URLS:
-                if url.match(path):
-
-                    return None
-            return redirect(settings.LOGIN_URL)
-
-            # if not any(url.match(path) for url in EXEMPT_URLS):
-            #     return redirect(settings.LOGIN_URL)
+            if not any(url.fullmatch(path) for url in EXEMPT_URLS):
+                return redirect(reverse('home'))
 
 
