@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
-from .models import UserProfileInfo, Subject
+from .models import UserProfileInfo, Grades
 
 from .forms import (
     SignUpForm, LogInForm,
@@ -38,7 +38,7 @@ class SignUpView(CreateView):
     def post(self, request, *args, **kwargs):
         user_form = self.form_class(request.POST)
         profile_form = UserProfileInfoForm(request.POST)
-        subject = Subject()
+        grades = Grades()
 
         if user_form.is_valid() and profile_form.is_valid():
 
@@ -47,8 +47,8 @@ class SignUpView(CreateView):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-            subject.user = user
-            subject.save()
+            grades.user = user
+            grades.save()
 
             self.registered = True
 
@@ -100,7 +100,7 @@ class GradesView(CreateView):
     template_name = 'accounts/grades.html'
 
     def get(self, request, *args, **kwargs):
-        context = {"grades": Subject.objects.filter(user=request.user)}
+        context = {"grades": Grades.objects.filter(user=request.user)}
         return render(request, template_name=self.template_name, context=context)
 
 
@@ -117,13 +117,15 @@ class ProfileInfoChangeView(CreateView):
     form_class = ProfileInfoChangeForm
 
     def get(self, request, *args, **kwargs):
+
         form = self.form_class(initial={'first_name': request.user.userprofileinfo.first_name,
-                                        'last_name': request.user.userprofileinfo.last_name}, instance=request.user)
+                                        'last_name': request.user.userprofileinfo.last_name,
+                                        }, instance=request.user)
         context = {"form": form}
         return render(request, template_name=self.template_name, context=context)
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST, instance=request.user)
+        form = self.form_class(data=request.POST, files=request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
             return redirect(reverse("smallsite:profile"))

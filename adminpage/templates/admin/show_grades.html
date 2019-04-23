@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Grades</title>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/show_grades.css' %}">
+
+{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
+        <a href="{% url 'smallsite:profile' %}" class="anc">Profile</a>
+    </nav>
+
+
+    <div class="main-body">
+        <div class="main-text">
+            <h1 id="student-name">Student name: {{ user.userprofileinfo.first_name }} {{ user.userprofileinfo.last_name }}</h1>
+
+                <div class="w3-card-2 w3-margin">
+                    <table class="w3-table-all">
+                        <tr class="grades-table">
+                            <th style="font-size: 18px">Subject:</th>
+                            <th style="font-size: 18px">Fist Semester</th>
+                            <th style="font-size: 18px">Second Semester</th>
+                            <th style="font-size: 18px">Overall Mark</th>
+                        </tr>
+
+                        {% for grade in grades %}
+                        <tr class="grades-table">
+                            <td class="subject"><a href="{% url 'adminpage:edit-grades' pk=user.pk subject_id=grade.pk %}">{{ grade.subject }}</a></td>
+                            <td>{{ grade.first_semester }}</td>
+                            <td>{{ grade.second_semester }}</td>
+                            <td>{{ grade.overall }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="buttons">
+
+                    <button type="submit" name="add"
+                            class="w3-button w3-padding w3-center w3-black w3-margin-bottom submit">Add</button>
+
+                    <button type="submit" name="edit"
+                            class="w3-button w3-padding w3-center w3-black w3-margin-bottom submit">Edit</button>
+
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+{% endblock %}
+

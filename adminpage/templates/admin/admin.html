@@ -8,18 +8,41 @@
 
 
 {% block body %}
-    <div id="title">
-        <h1 id="title-text">Admin Page</h1>
-    </div>
 
-    <div class="students">
-        {% for student in students %}
-            <p>
-                <a href=""><img src="{{ student.userprofileinfo.profile_pic.url }}" class="student-picture">
-                    {{ student.userprofileinfo.first_name }}
-                    {{ student.userprofileinfo.last_name }}</a>
-            </p>
-        {% endfor %}
+    <nav>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
+        <a href="{% url 'smallsite:logout' %}" class="anc" style="float: right">Log Out</a>
+    </nav>
+
+
+
+    <div class="main-body">
+        <div class="main-text">
+
+            <div class="heading">
+                <h4 id="heading-text">Students</h4>
+            </div>
+
+            {% for student in students %}
+                <div class="student">
+                        <a href="{% url 'adminpage:edit-credentials' pk=student.pk %}" style="text-decoration: none">
+                            <img src="{{ student.userprofileinfo.profile_pic.url }}" class="student-picture">
+                        </a>
+
+                        <a href="{% url 'adminpage:edit-credentials' pk=student.pk %}" style="text-decoration: none">
+                            <span class="student-name">
+                                {{ student.userprofileinfo.first_name }}
+                                {{ student.userprofileinfo.last_name }}
+                            </span>
+                        </a>
+                        <div>
+                        <a href="{% url 'adminpage:show-grades' pk=student.pk %}" style="text-decoration: none">
+                            <span class="student-name">Grades</span>
+                        </a>
+                        </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
 

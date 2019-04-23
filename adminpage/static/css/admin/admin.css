@@ -1,19 +1,71 @@
-.students {
-    margin: 20px 0 0 50px;
+.anc {
+    font-family: 'Mate', serif;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0 3px;
+    }
+
+.anc:hover {
+    text-decoration: none;
+    color: #515151;
+    }
+
+nav {
+    background-color: white;
+    padding: 15px 15px;
+    margin: 4px 30px 0 30px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.student {
+    width: 500px;
+    border-radius: 1px;
+    border-width: 1px;
+    border-color: whitesmoke;
+    background-color: whitesmoke;
+    border-style: solid;
+    padding: 14px 0 0 14px;
+    margin: 20px 0 0 0;
+}
+
+.main-body {
+    margin: 25px 30px 0px 30px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-text {
+    padding: 40px 40px 40px 50px;
+}
+
+.student-name:hover {
+    color: #7e7d7d;
+}
+
+.student-name {
+    margin-left: 40px;
+    font-size: 16px;
+    color: black;
 }
 
 .student-picture{
-    width: 40px;
+    width: 100px;
+    border-style: solid;
+    border-color: #f8f8f6;
+    background-color: white;
 }
 
-#title {
+.heading {
+    height: 50px;
+    border-style: solid;
     border-color: #417690;
+    border-radius: 4px;
     background-color: #417690;
 }
 
-#title-text {
-    font-weight: lighter;
-    padding: 12px 0 12px 30px;
-    color: whitesmoke;
-    font-size: 30px;
+#heading-text {
+    padding: 10px 10px 0 10px;
+    font-size: 20px;
+    color: #f8f8f6;
+
 }

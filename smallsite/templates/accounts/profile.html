@@ -19,7 +19,10 @@
 
 <div class="main-body">
     <div class="profile">
-        <img src="{{ user.userprofileinfo.profile_pic.url }}" class="profile-picture" alt="Image could not be loaded">
+        <div class="profile-picture">
+            <div class="overlay-image"></div>
+            <img src="{{ user.userprofileinfo.profile_pic.url }}" alt="Image could not be loaded">
+        </div>
         <h6 style="padding-top: 5px">{{ user.userprofileinfo.first_name }} {{ user.userprofileinfo.last_name }}</h6>
         <li><a href="{% url 'smallsite:edit-profile' %}" class="abc">Edit Personal Info</a></li>
         <li><a href="{% url 'smallsite:reset-password' %}" class="abc">Reset Password </a></li>

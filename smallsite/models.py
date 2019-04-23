@@ -72,12 +72,20 @@ class CustomUser(AbstractBaseUser):
         return self.admin
 
 
-class Subject(models.Model):
+class Grades(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     subject = models.CharField(default='Subject', max_length=255)
-    semester1 = models.CharField(default='-', max_length=30)
-    semester2 = models.CharField(default='-', max_length=30)
+    first_semester = models.CharField(default='-', max_length=30)
+    second_semester = models.CharField(default='-', max_length=30)
     overall = models.CharField(default='-', max_length=30)
+
+
+# class Subject(models.Model):
+#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+#     subject = models.CharField(default='Subject', max_length=255)
+#     semester1 = models.CharField(default='-', max_length=30)
+#     semester2 = models.CharField(default='-', max_length=30)
+#     overall = models.CharField(default='-', max_length=30)
 
 
 class UserProfileInfo(models.Model):

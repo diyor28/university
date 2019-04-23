@@ -70,28 +70,3 @@ nav {
     width: 200px;
     margin: auto;
 }
-
-.input-field {
-    margin-right: 10px;
-    width: 400px;
-}
-
-.edit-form {
-    margin: 0 0 0 50px;
-    padding: 0 0 0 50px;
-}
-
-.save-message {
-    padding: 10px 0 10px 10px;
-    width: 400px;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: lightgreen;
-}
-
-#reset {
-    padding-top: 10px;
-    text-align: center;
-}
-
-

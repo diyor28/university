@@ -188,9 +188,9 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="34" parent="20" name="smallsite_subject_id_seq">
-      <ObjectId>49348</ObjectId>
-      <StateNumber>1355</StateNumber>
+    <sequence id="34" parent="20" name="smallsite_grades_id_seq">
+      <ObjectId>57540</ObjectId>
+      <StateNumber>1557</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
@@ -234,9 +234,9 @@
       <ObjectId>33037</ObjectId>
       <StateNumber>1034</StateNumber>
     </table>
-    <table id="44" parent="20" name="smallsite_subject">
-      <ObjectId>49350</ObjectId>
-      <StateNumber>1355</StateNumber>
+    <table id="44" parent="20" name="smallsite_grades">
+      <ObjectId>57542</ObjectId>
+      <StateNumber>1557</StateNumber>
     </table>
     <table id="45" parent="20" name="smallsite_userprofileinfo">
       <ObjectId>33129</ObjectId>

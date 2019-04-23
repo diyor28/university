@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import ReadOnlyPasswordHashField, PasswordChangeForm
-from .models import CustomUser, UserProfileInfo, Subject
+from .models import CustomUser, UserProfileInfo, Grades
 
 
 class LogInForm(forms.Form):
@@ -44,8 +44,14 @@ class UserProfileInfoForm(forms.ModelForm):
 
 
 class ResetPasswordForm(forms.ModelForm):
-    new_password1 = forms.CharField()
-    new_password2 = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput(attrs={"class": 'w3-input w3-border w3-round',
+                                                                 "placeholder": 'Password'}))
+
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={"class": 'w3-input w3-border w3-round',
+                                                                      "placeholder": 'New password...'}))
+
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={"class": 'w3-input w3-border w3-round',
+                                                                      "placeholder": 'New password...'}))
 
     class Meta:
         model = CustomUser
@@ -87,11 +93,11 @@ class ProfileInfoChangeForm(forms.ModelForm):
                                 widget=forms.TextInput(attrs={'class': 'w3-input w3-border w3-round'
                                                               }))
 
-    profile_pic = forms.ImageField(label='Choose File', required=False,
-                                   widget=forms.ClearableFileInput(attrs={'class': 'image-field'}))
+    profile_pic = forms.ImageField(label='Choose File', required=True,
+                                   widget=forms.FileInput(attrs={'class': 'image-field'}))
 
     class Meta:
-        model = CustomUser
+        model = UserProfileInfo
         fields = ('email', 'first_name', 'last_name', 'profile_pic')
 
     def save(self, commit=True):
@@ -99,6 +105,7 @@ class ProfileInfoChangeForm(forms.ModelForm):
         user.email = self.cleaned_data['email']
         user.userprofileinfo.first_name = self.cleaned_data['first_name']
         user.userprofileinfo.last_name = self.cleaned_data['last_name']
+        user.userprofileinfo.profile_pic = self.files['profile_pic']
 
         if commit:
             user.save()
