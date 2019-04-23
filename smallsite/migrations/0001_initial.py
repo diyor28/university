@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(default='123abc@gmail.com', max_length=255, unique=True)),
                 ('active', models.BooleanField(default=True)),
                 ('staff', models.BooleanField(default=False)),
-                ('admin', models.BooleanField(default=False)),
+                ('adminpage', models.BooleanField(default=False)),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
             ],
             options={

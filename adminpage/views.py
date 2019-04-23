@@ -125,7 +125,7 @@ class EditCredentialsView(CreateView):
 
         if form.is_valid():
             form.save()
-            return redirect(reverse("adminpage:admin"))
+            return redirect(reverse("adminpage:adminpage"))
 
         context = {"form": form}
         return render(request, template_name=self.template_name, context=context)

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>LogIn</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/smallsite/signup.css' %}">
+{% endblock %}
+
+{% block body %}
+    <nav>
+        <a href="{% url 'home' %}" class="anc"><i class="fa fa-home"></i> Home Page</a>
+        <a href="#login" onclick="document.getElementById('id01').style.display='block'" class="anc" style="float: right;">Log In</a>
+    </nav>
+
+    <h1>Please confirm your email</h1>
+{% endblock %}

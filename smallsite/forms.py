@@ -27,8 +27,8 @@ class SignUpForm(forms.ModelForm):
             raise forms.ValidationError("Passwords don't match")
         return password2
 
-    def save(self, commit=True):
-        user = super(SignUpForm, self).save(commit=False)
+    def save(self, commit=True) -> CustomUser:
+        user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.active = True
         if commit:
@@ -147,7 +147,7 @@ class CustomUserAdminCreationForm(forms.ModelForm):
 
 class CustomUserAdminChangeForm(forms.ModelForm):
     """A form for updating users. Includes all the fields on
-    the user, but replaces the password field with admin's
+    the user, but replaces the password field with adminpage's
     password hash display field.
     """
     password = ReadOnlyPasswordHashField()

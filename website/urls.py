@@ -10,9 +10,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('django-admin/', admin.site.urls, name='django-admin'),
-    path('admin/', include(('adminpage.urls', 'adminpage'), namespace='adminpage')),
-    path('accounts/', include(('smallsite.urls', 'smallsite'), namespace='smallsite')),
+    path('django-adminpage/', admin.site.urls, name='django-adminpage'),
+    path('adminpage/', include(('adminpage.urls', 'adminpage'), namespace='adminpage')),
+    path('smallsite/', include(('smallsite.urls', 'smallsite'), namespace='smallsite')),
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^news/$', NewsView.as_view(), name='news'),
     url(r'^projects/$', ProjectsView.as_view(), name='projects')

@@ -7,7 +7,7 @@ from smallsite.forms import LogInForm
 
 
 class HomeView(CreateView):
-    template_name = 'general/home.html'
+    template_name = 'website/home.html'
     form_class = LogInForm
 
     def get(self, request, *args, **kwargs):
@@ -34,7 +34,7 @@ class HomeView(CreateView):
 
 
 class ProjectsView(CreateView):
-    template_name = 'general/projects.html'
+    template_name = 'website/projects.html'
 
     def get(self, request, *args, **kwargs):
         context = {}
@@ -42,7 +42,7 @@ class ProjectsView(CreateView):
 
 
 class NewsView(CreateView):
-    template_name = 'general/news.html'
+    template_name = 'website/news.html'
 
     def get(self, request, *args, **kwargs):
         context = {}
